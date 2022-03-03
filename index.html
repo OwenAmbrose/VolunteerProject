@@ -67,13 +67,18 @@
 		var fromYear = document.getElementById('from-year');
 		var toYear = document.getElementById('to-year');
 		var option;
+		var toYearVal;
 		fromYear.onchange = function () {
+			toYearVal = toYear.value;
 			toYear.innerHTML='';
 			for(var i = fromYear.value; i <= 2017; i++){
 				option = document.createElement('option'); // creating the option element and assigning it to the variable option
 				option.setAttribute('value', i); // adds the attribute "value" to the option element and sets it to the var i
 				option.textContent = i; // adds text to the option variable
 				toYear.appendChild(option); // inserts the var optionnto the select elements as a child
+			}
+			if (toYearVal >= fromYear.value){
+				toYear.value = toYearVal;
 			}
 		}
 	</script>
